@@ -1,0 +1,92 @@
+/*section images*/ 
+
+#sectionImages{
+    width: 100%;
+    height: 35vh;
+    background-color: #007AA2;
+}
+.images{
+    margin-left: 5%;
+    float: left;
+    margin-top: 2.5%;
+    width: 33%;
+    height: 75%;
+}
+#before{
+    background-color: #4E97D1;
+    margin-left: 14%;
+}
+#after{
+    background-color: #56a8eb;
+}
+
+/*section identify*/ 
+
+#sectionIdentify{
+    width: 100%;
+    height: 55vh;
+    background-color: #00a216;
+    padding: 1px;
+}
+
+.questions{
+    margin-left: 5%;
+    width: 90%;
+    height: 35%;
+}
+
+#identify{
+    background-color: #4ed16a;
+    margin-top: 7vh;
+}
+
+#function{
+    background-color: #56eb6a;
+}
+
+.checkbox{
+    width: 100%;
+    height: 30%;
+    border-radius: 10px;
+}
+
+#names{
+    background-color: #36944b;
+}
+
+#tasks{
+    background-color: #48be58;
+}
+
+/*section information*/ 
+
+#sectionInformation{
+    width: 100%;
+    height: 70vh;
+    background-color: #a29700;
+    padding: 1px;
+}
+
+.proCheckbox{
+    margin-left: 4%;
+    width: 90%;
+    height: 20%;
+    border-radius: 35px;
+    margin-top: 7vh;
+    background-color: #dacf3a;
+
+    display: flex;
+    align-items: center;        /* centraliza verticalmente */
+    justify-content: space-between;  /* separa esquerda e direita */
+    padding: 0 20px;
+}
+
+.TextInformations{
+    margin: 0;
+}
+
+.iconFlecha{
+    width: 40px;
+    height: 40px;
+    background-color: #fff679;
+}
