@@ -154,3 +154,17 @@ body{
     background-color: var(--azulMedio);
     border-color: var(--azulMedio);
 }
+
+/* ===== SECTION GOALS AND CHALLENGES ===== */
+
+.meta-card{
+    background: var(--azulEscuro);
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+.btn-primary{
+    background-color: var(--azulMedio);
+    border-color: var(--azulMedio);
+}
