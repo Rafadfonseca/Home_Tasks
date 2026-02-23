@@ -139,3 +139,18 @@ function abrirPagamento() {
     alert("Erro ao pagar");
   });
 }
+
+function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Número copiado: " + text); // Alerta opcional de confirmação
+            }).catch(err => {
+                console.error('Falha ao copiar: ', err);
+            });
+        }
+
+        // Adiciona um "ouvinte de evento" (event listener) ao link
+        document.getElementById('phone-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Impede que o link navegue para uma âncora vazia (#)
+            const phoneNumber = this.getAttribute('data-phone-number'); // Obtém o número do atributo de dados
+            copyToClipboard(phoneNumber); // Chama a função de cópia
+        });
