@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Tasks</title>
+
+<link rel="stylesheet" href="usuario.css">
+</head>
+
+<body>
+
+<header class="topo">
+    <h2>Olá, <span id="nomeUsuario"></span> </h2>
+    <button class="logout" onclick="logout()">Sair</button>
+</header>
+
+<main class="container">
+
+    <!-- ADICIONAR TAREFA -->
+    <section class="card">
+        <h3>Adicionar tarefa</h3>
+
+        <select id="tarefa">
+            <option value="">Selecione a tarefa</option>
+            <option>Lavar louça</option>
+            <option>Arrumar as roupas</option>
+            <option>Organizar as duas salas</option>
+            <option>Arrumar todo o quarto</option>
+        </select>
+
+        <button onclick="adicionarTarefa()">Adicionar</button>
+    </section>
+
+    <!-- ACCORDION -->
+    <section class="accordion">
+
+        <button class="acc-btn">💰 Ver dinheiro</button>
+        <div class="acc-content">
+            <p id="moneyValor">Carregando...</p>
+        </div>
+
+        <button class="acc-btn">🎯 Metas</button>
+        <div class="acc-content">
+
+            <div class="card">
+                <button onclick="criarMeta()">Criar Meta</button>
+
+                <div class="barra">
+                    <div id="progressoMeta">
+                        <span id="porcentagemMeta">0%</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="acc-btn">🤝 Desafio</button>
+        <div class="acc-content">
+            <p>Desafio em andamento...</p>
+        </div>
+
+        <button class="acc-btn">📅 Calendário</button>
+        <div class="acc-content">
+            <div id="calendario"></div>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="usuario.js"></script>
+</body>
+</html>

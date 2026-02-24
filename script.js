@@ -1,8 +1,10 @@
 function trocarFundo() {
     const usuario = document.getElementById("usuario").value;
 
-    document.body.classList.remove("rafaela","roberta","fabiano");
+    // remove fundos anteriores
+    document.body.classList.remove("rafaela", "roberta", "fabiano");
 
+    // adiciona novo fundo
     if (usuario) {
         document.body.classList.add(usuario);
     }
@@ -19,16 +21,23 @@ function login() {
         fabiano: "senha123"
     };
 
+    erro.textContent = "";
+
+    // valida campos
     if (!usuario || !senha) {
         erro.textContent = "Preencha todos os campos.";
         return;
     }
 
+    // valida login
     if (usuarios[usuario] === senha) {
 
-        // 👉 redirecionamentos
+        // ⭐ SALVA usuário logado
+        localStorage.setItem("usuario", usuario);
+
+        // redirecionamentos
         if (usuario === "rafaela" || usuario === "roberta") {
-            window.location.href = "adicionar.html";
+            window.location.href = "usuario.html";
         } else if (usuario === "fabiano") {
             window.location.href = "pagar.html";
         }
