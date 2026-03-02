@@ -10,39 +10,56 @@ function trocarFundo() {
     }
 }
 
-function login() {
-    const usuario = document.getElementById("usuario").value;
-    const senha = document.getElementById("senha").value;
-    const erro = document.getElementById("erro");
+async function login() {
 
-    const usuarios = {
-        rafaela: "1234",
-        roberta: "abcd",
-        fabiano: "senha123"
-    };
+  const usuario = document.getElementById("usuario").value.toLowerCase().trim();
+  const senha = document.getElementById("senha").value;
+  const erro = document.getElementById("erro");
 
-    erro.textContent = "";
+  erro.textContent = "";
 
-    // valida campos
-    if (!usuario || !senha) {
-        erro.textContent = "Preencha todos os campos.";
-        return;
-    }
+  if (!usuario) {
+    erro.textContent = "Digite o usuário.";
+    return;
+  }
 
-    // valida login
-    if (usuarios[usuario] === senha) {
+  // consulta login
+  const resp = await fetch(
+    "https://script.google.com/macros/s/AKfycbzyUWn-_SfnPRoMeFCdkmNO_kFhzX0QKc9eQQkovPFipeg82JPLTQ0ueRiutFCdg-yD/exec?tipo=login&usuario=" + usuario + "&senha=" + senha
+  );
 
-        // ⭐ SALVA usuário logado
-        localStorage.setItem("usuario", usuario);
+  const dados = await resp.json();
 
-        // redirecionamentos
-        if (usuario === "rafaela" || usuario === "roberta") {
-            window.location.href = "usuario.html";
-        } else if (usuario === "fabiano") {
-            window.location.href = "pagar.html";
-        }
+  if (!dados.existe) {
 
-    } else {
-        erro.textContent = "Usuário ou senha incorretos.";
-    }
+    const novaSenha = prompt(
+      "Nenhuma senha criada ainda. Qual senha deseja usar?"
+    );
+
+    if (!novaSenha) return;
+
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbzyUWn-_SfnPRoMeFCdkmNO_kFhzX0QKc9eQQkovPFipeg82JPLTQ0ueRiutFCdg-yD/exec?tipo=login&usuario=" +
+      usuario +
+      "&novaSenha=" +
+      novaSenha
+    );
+
+    alert("Senha criada! Agora faça login.");
+    return;
+  }
+
+  if (!dados.correta) {
+    erro.textContent = "Senha incorreta.";
+    return;
+  }
+
+  // ✅ login OK
+  localStorage.setItem("usuario", usuario);
+
+  if (usuario === "fabiano") {
+    window.location.href = "pagar.html";
+  } else {
+    window.location.href = "usuario.html";
+  }
 }
